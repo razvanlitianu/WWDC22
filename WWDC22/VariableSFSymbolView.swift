@@ -8,11 +8,69 @@
 import SwiftUI
 import Combine
 
+enum SymbolVariance {
+    case start
+    case step1
+    case step2
+    case end
+    
+    var next: SymbolVariance {
+        switch self {
+        case .start:
+            return .step1
+        case .step1:
+            return .step2
+        case .step2:
+            return .end
+        case .end:
+            return .start
+        }
+    }
+    
+    var value: Double {
+        switch self {
+        case .start:
+            return 0
+        case .step1:
+            return 0.2
+        case .step2:
+            return 0.6
+        case .end:
+            return 1
+        }
+    }
+}
+
 struct VariableSFSymbolView: View {
-    @State var count: Double = 0
     @State var subs: [AnyCancellable] = []
     var body: some View {
-        Image(systemName: "ellipsis.message.fill", variableValue: count)
+        VStack {
+            Image(systemName: "ellipsis.message.fill", variableValue: 0)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.blue)
+            Image(systemName: "ellipsis.message.fill", variableValue: 0.2)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.blue)
+            Image(systemName: "ellipsis.message.fill", variableValue: 0.6)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.blue)
+            Image(systemName: "ellipsis.message.fill", variableValue: 1)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.blue)
+        }
+        .padding()
+    }
+}
+
+struct AnimatingSFSymbolView: View {
+    @State var variance: SymbolVariance = .start
+    @State var subs: [AnyCancellable] = []
+    var body: some View {
+        Image(systemName: "ellipsis.message.fill", variableValue: variance.value)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .foregroundColor(.blue)
@@ -26,16 +84,7 @@ struct VariableSFSymbolView: View {
         Timer.publish(every: 0.75, on: .main, in: .default)
             .autoconnect()
             .sink { _ in
-                switch self.count {
-                    case 0.0:
-                        self.count = 0.2
-                    case 0.2:
-                        self.count = 0.6
-                    case 0.6:
-                        self.count = 1.0
-                    default:
-                        self.count = 0.0
-                }
+                variance = variance.next
             }.store(in: &subs)
     }
 
@@ -44,5 +93,6 @@ struct VariableSFSymbolView: View {
 struct VariableSFSymbolView_Previews: PreviewProvider {
     static var previews: some View {
         VariableSFSymbolView()
+        AnimatingSFSymbolView()
     }
 }
