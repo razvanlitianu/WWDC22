@@ -9,15 +9,20 @@ import SwiftUI
 
 struct BottomSheet: View {
     @State private var showSheet = false
+    @State private var showCustomSheet = false
 
     var body: some View {
-        customDetent
+        VStack {
+            defaultDetent
+            customDetent
+        }
     }
 
     var defaultDetent: some View {
-        Button("Show Sheet") {
+        Button("Show Default Detents") {
             showSheet = true
         }
+        .buttonStyle(.borderedProminent)
         .sheet(isPresented: $showSheet) {
             Text("Hello from the SwiftUI sheet!")
                 .presentationDetents([.medium, .large])
@@ -25,10 +30,11 @@ struct BottomSheet: View {
     }
 
     var customDetent: some View {
-        Button("Show Sheet") {
-            showSheet = true
+        Button("Show Custom Detents") {
+            showCustomSheet = true
         }
-        .sheet(isPresented: $showSheet) {
+        .buttonStyle(.borderedProminent)
+        .sheet(isPresented: $showCustomSheet) {
             Text("Hello from the SwiftUI sheet!")
                 .presentationDetents([
                     .fraction(0.2),
@@ -57,6 +63,6 @@ struct BottomSheet_Previews: PreviewProvider {
     static var previews: some View {
         BottomSheet()
         Popover()
-//            .previewDevice("iPad")
+            .previewDevice("iPad")
     }
 }

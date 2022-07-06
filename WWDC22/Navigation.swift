@@ -15,16 +15,19 @@ struct User: Identifiable, Hashable {
 
 struct UserView: View {
     let user: User
+    let pop: () -> Void
 
     var body: some View {
         Text(user.name)
+        Button("Pop", action: pop)
+            .buttonStyle(.borderedProminent)
     }
 }
 
 struct Navigation: View {
     @State private var path: [User] = []
     @State private var users: [User] = [
-        .init(name: "Majid")
+        .init(name: "Razvan")
     ]
 
     var body: some View {
@@ -37,18 +40,21 @@ struct Navigation: View {
             }
             .navigationTitle("Users")
             .navigationDestination(for: User.self) { user in
-                UserView(user: user)
-                    .navigationTitle(user.name)
+                UserView(user: user) {
+                    path.removeAll(where: { $0 == user })
+                }
+                .navigationTitle(user.name)
             }
         }
-//        .onAppear {
-//            path.append(
-//                contentsOf: [
-//                    .init(name: "John"),
-//                    .init(name: "Majid")
-//                ]
-//            )
-//        }
+        .onAppear {
+            path.append(
+                contentsOf: [
+                    .init(name: "Razvan"),
+                    .init(name: "John"),
+                    .init(name: "Majid")
+                ]
+            )
+        }
     }
 }
 
