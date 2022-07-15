@@ -7,71 +7,20 @@
 
 import SwiftUI
 
-struct ColorDetail: View {
-    let color: Color
-
+struct OldColumnNavigationView: View {
     var body: some View {
-        Circle()
-            .foregroundColor(color)
-    }
-}
-
-struct SelectionNavigationView: View {
-    let colors: [Color] = [.purple, .pink, .orange]
-    @State private var selection: Color? = nil // Nothing selected by default.
-
-    var body: some View {
-//        old
-        new
-    }
-
-    var old: some View {
-        NavigationView { // This is deprecated.
-            List {
-                ForEach(colors, id: \.self) { color in
-                    NavigationLink(color.description, tag: color, selection: $selection) {
-                        ColorDetail(color: color)
-                    }
-                }
-            }
-            Text("Pick a color")
-        }
-    }
-
-    var new: some View {
-        NavigationSplitView {
-            List(colors, id: \.self, selection: $selection) { color in
-                NavigationLink(color.description, value: color)
-            }
-        } detail: {
-            ZStack { // hack
-                if let color = selection {
-                    ColorDetail(color: color)
-                } else {
-                    Text("Pick a color")
-                }
-            }
-        }
-    }
-}
-
-struct ColumnNavigationView: View {
-    var body: some View {
-//        old
-        new
-    }
-
-    var old: some View {
         NavigationView {
             Text("Sidebar")
             Text("Content")
             Text("Detail")
         }
     }
+}
 
-    var new: some View {
+struct NewColumnNavigationView: View {
+    var body: some View {
         NavigationSplitView {
-            Text("Nav")
+            Text("Sidebar")
         } content: {
             Text("Content")
         } detail: {
@@ -80,14 +29,14 @@ struct ColumnNavigationView: View {
     }
 }
 
-struct ColumnNavigation_Previews: PreviewProvider {
+struct OldColumnNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        ColumnNavigationView()
+        OldColumnNavigationView()
     }
 }
 
-struct SelectionNavigation_Previews: PreviewProvider {
+struct NewColumnNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionNavigationView()
+        NewColumnNavigationView()
     }
 }
