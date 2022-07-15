@@ -11,7 +11,7 @@ import SwiftUI
 struct WWDC22App: App {
     var body: some Scene {
         WindowGroup {
-            VariableSFSymbolView()
+            SelectionNavigationView()
         }
     }
 }
