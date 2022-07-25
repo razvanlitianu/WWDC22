@@ -37,6 +37,8 @@ struct Chart: View {
             )
             .foregroundStyle(by: .value("Value", item.value))
         }
+        .padding()
+        .frame(height: 200)
     }
 }
 

@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ViewFit: View {
+
+    @State private var width: CGFloat = 1000
+    var colors: [CGFloat] = [100, 150, 200, 1000]
+
     var body: some View {
-        ChildView()
-            .frame(width: 1000)
+        VStack(spacing: 32) {
+            ChildView()
+                .frame(width: width)
+            Picker("", selection: $width) {
+                ForEach(colors, id: \.self) {
+                    Text($0.description)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding()
+        }
     }
 }
 

@@ -19,6 +19,8 @@
 		C8C5EC14287EA9FB00488334 /* ColumnNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5EC13287EA9FB00488334 /* ColumnNavigation.swift */; };
 		E5180E4F28759AE4004D2BFE /* VariableSFSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5180E4E28759AE4004D2BFE /* VariableSFSymbolView.swift */; };
 		E5180E5128759AFB004D2BFE /* GradientExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5180E5028759AFB004D2BFE /* GradientExampleView.swift */; };
+		E530BD0A2882D2260094A7F0 /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530BD092882D2260094A7F0 /* SharedView.swift */; };
+		E530BD0C2882D2F00094A7F0 /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530BD0B2882D2F00094A7F0 /* DraggableView.swift */; };
 		E54385EC2881456A00605C49 /* SelectionNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54385EB2881456A00605C49 /* SelectionNavigationView.swift */; };
 		E54385EE288145C600605C49 /* NavigationPathBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54385ED288145C600605C49 /* NavigationPathBasedView.swift */; };
 		E54BDB9B28620CB800A4A590 /* MarkDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54BDB9A28620CB800A4A590 /* MarkDownView.swift */; };
@@ -39,6 +41,8 @@
 		C8C5EC13287EA9FB00488334 /* ColumnNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnNavigation.swift; sourceTree = "<group>"; };
 		E5180E4E28759AE4004D2BFE /* VariableSFSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSFSymbolView.swift; sourceTree = "<group>"; };
 		E5180E5028759AFB004D2BFE /* GradientExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExampleView.swift; sourceTree = "<group>"; };
+		E530BD092882D2260094A7F0 /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
+		E530BD0B2882D2F00094A7F0 /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		E54385EB2881456A00605C49 /* SelectionNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionNavigationView.swift; sourceTree = "<group>"; };
 		E54385ED288145C600605C49 /* NavigationPathBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathBasedView.swift; sourceTree = "<group>"; };
 		E54BDB9A28620CB800A4A590 /* MarkDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDownView.swift; sourceTree = "<group>"; };
@@ -75,15 +79,17 @@
 			isa = PBXGroup;
 			children = (
 				C88992DC2860630800F327D6 /* WWDC22App.swift */,
+				C88992DE2860630800F327D6 /* ContentView.swift */,
 				C8C5EC15287EAA0100488334 /* Navigation */,
 				E54BDB9A28620CB800A4A590 /* MarkDownView.swift */,
 				C88992EF2860631E00F327D6 /* BottomSheet.swift */,
 				C88992EC2860631E00F327D6 /* Chart.swift */,
 				C88992EE2860631E00F327D6 /* Layout.swift */,
 				C88992ED2860631E00F327D6 /* ViewFit.swift */,
-				C88992DE2860630800F327D6 /* ContentView.swift */,
 				E5180E4E28759AE4004D2BFE /* VariableSFSymbolView.swift */,
 				E5180E5028759AFB004D2BFE /* GradientExampleView.swift */,
+				E530BD092882D2260094A7F0 /* SharedView.swift */,
+				E530BD0B2882D2F00094A7F0 /* DraggableView.swift */,
 				C88992E02860630A00F327D6 /* Assets.xcassets */,
 				C88992E22860630A00F327D6 /* WWDC22.entitlements */,
 				C88992E32860630A00F327D6 /* Preview Content */,
@@ -183,6 +189,7 @@
 				C88992F12860631E00F327D6 /* Chart.swift in Sources */,
 				E54385EE288145C600605C49 /* NavigationPathBasedView.swift in Sources */,
 				E54385EC2881456A00605C49 /* SelectionNavigationView.swift in Sources */,
+				E530BD0C2882D2F00094A7F0 /* DraggableView.swift in Sources */,
 				C88992F02860631E00F327D6 /* ProgramaticNavigationView.swift in Sources */,
 				C88992F42860631E00F327D6 /* BottomSheet.swift in Sources */,
 				C8C5EC14287EA9FB00488334 /* ColumnNavigation.swift in Sources */,
@@ -190,6 +197,7 @@
 				E54BDB9B28620CB800A4A590 /* MarkDownView.swift in Sources */,
 				C88992DF2860630800F327D6 /* ContentView.swift in Sources */,
 				E5180E4F28759AE4004D2BFE /* VariableSFSymbolView.swift in Sources */,
+				E530BD0A2882D2260094A7F0 /* SharedView.swift in Sources */,
 				C88992DD2860630800F327D6 /* WWDC22App.swift in Sources */,
 				C88992F22860631E00F327D6 /* ViewFit.swift in Sources */,
 				C88992F32860631E00F327D6 /* Layout.swift in Sources */,
@@ -317,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WWDC22/Preview Content\"";
+				DEVELOPMENT_TEAM = HGV9J2H6SR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
@@ -347,6 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WWDC22/Preview Content\"";
+				DEVELOPMENT_TEAM = HGV9J2H6SR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
